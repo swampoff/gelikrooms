@@ -1,0 +1,180 @@
+/* GelikRooms v5: mobile-first native-feeling UX and secure payment center.
+   Progressive enhancement on top of v4's CSS. */
+:root{--native-ink:#142f3b;--native-sea:#077e80;--native-sea2:#11a7a2;--native-cream:#f8f5ef;--native-gold:#d9b47c}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
+button,input,select,textarea{font:inherit}
+button,a,label{touch-action:manipulation}
+button{cursor:pointer}
+:focus-visible{outline:3px solid #11a7a2;outline-offset:3px}
+button:disabled{opacity:.54;cursor:not-allowed}
+.btn-yoo{background:#e7f5f3!important;border:1px solid #bfe5df!important;color:#156e70!important;display:inline-flex;align-items:center;gap:8px;font-weight:800}
+.btn-yoo:hover{background:#d4efeb!important;border-color:#78c5bf!important}
+/* Payment hub */
+.yoo-hero{border-radius:23px;background:radial-gradient(circle at 89% 20%,#2c7781 0,#173b4c 28%,#0c2636 78%);min-height:230px;display:flex;justify-content:space-between;gap:22px;padding:32px 35px;color:#fff;overflow:hidden;position:relative;box-shadow:0 18px 36px #163f4b1c}
+.yoo-hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ffffff18;border-radius:50%;right:-120px;top:-170px;pointer-events:none}
+.yoo-hero .eyebrow{color:#73d9d2;letter-spacing:2.1px;font-size:10px}
+.yoo-hero h2{font-size:clamp(26px,2.5vw,38px);letter-spacing:-1.7px;line-height:1.1;margin:16px 0 11px;font-weight:850}
+.yoo-hero p{font-size:13px;line-height:1.65;color:#d1e2e3;max-width:510px;margin:0}
+.yoo-hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:25px}
+.yoo-hero .btn{min-height:43px;padding:11px 15px;font-size:12px;gap:9px}
+.yoo-hero .btn-light{background:white;color:#16424b;border:1px solid #fff}
+.yoo-hero .btn-light-outline{background:#ffffff10;color:#fff;border:1px solid #ffffff5c}
+.yoo-hero-symbol{position:relative;z-index:1;flex:none;width:185px;height:185px;border-radius:50%;background:linear-gradient(135deg,#ffffff17,#ffffff07);border:1px solid #ffffff2d;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;box-shadow:inset 0 0 0 13px #ffffff05;color:#a2e6dd}
+.yoo-hero-symbol span{font-size:9px;letter-spacing:1.7px;font-weight:900;color:#f4e3c3}
+.yoo-connection{background:white;border:1px solid #e3edeb;border-radius:16px;min-height:81px;padding:15px 19px;display:flex;align-items:center;justify-content:space-between;gap:14px;margin:18px 0;box-shadow:0 5px 20px #183b3708}
+.yoo-connection>div{display:flex;align-items:center;gap:14px;min-width:0}
+.yoo-connection strong{font-size:13px;color:#25444b;display:block}
+.yoo-connection small{font-size:11px;line-height:1.5;color:#819498;display:block;margin-top:5px}
+.yoo-led{height:12px;width:12px;flex:none;border-radius:50%;background:#d5a1a1;box-shadow:0 0 0 6px #faeeee}
+.yoo-led.on{background:#31a482;box-shadow:0 0 0 6px #e1f6eb}
+.yoo-error{background:#fff0ef;color:#a34440;border:1px solid #edcbc4;border-radius:13px;padding:13px 17px;font-size:12px;line-height:1.5}
+.yoo-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-bottom:20px}
+.yoo-stat{background:#fff;border:1px solid #e6efeb;min-height:133px;border-radius:16px;padding:23px;box-shadow:0 6px 22px #163c4008}
+.yoo-stat span{font-size:12px;color:#789095;display:block}
+.yoo-stat strong{font-size:clamp(24px,2.5vw,34px);color:#163742;letter-spacing:-1px;display:block;margin-top:14px;line-height:1.08}
+.yoo-stat small{display:block;font-size:10px;color:#9aa9a8;margin-top:13px}
+.yoo-columns{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-bottom:20px;align-items:stretch}
+.yoo-panel{padding:24px;min-height:326px}
+.yoo-panel-head{display:flex;align-items:start;justify-content:space-between;gap:14px;padding-bottom:15px;border-bottom:1px solid #ecf1ef}
+.yoo-panel-head h2{font-size:18px;color:#1a3540;letter-spacing:-.4px;margin:7px 0 7px}
+.yoo-panel-head p{font-size:11px;color:#819298;line-height:1.6;max-width:420px;margin:0}
+.yoo-panel-head .btn{flex:none;font-size:11px;min-height:38px;padding:9px 10px}
+.yoo-items{display:flex;flex-direction:column;gap:0}
+.yoo-item{padding:17px 0;border-bottom:1px solid #edf2f1;display:flex;gap:13px;align-items:center;justify-content:space-between}
+.yoo-item:last-child{border-bottom:0}
+.yoo-item strong{display:block;font-size:12px;color:#25444c}
+.yoo-item small{display:block;color:#84999b;font-size:10px;line-height:1.6;margin-top:5px;overflow-wrap:anywhere}
+.yoo-item .btn{flex:none;min-height:39px;padding:9px 12px;font-size:11px}
+.yoo-inline-actions{display:flex;gap:7px}
+.yoo-icon-action{background:#edf6f2;border:1px solid #cfe9df;color:#14766f;border-radius:12px;width:41px;height:41px;display:grid;place-items:center}
+.yoo-icon-action:hover{background:#d8efe6}
+.yoo-empty{min-height:235px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;color:#8caeab;gap:13px;padding:26px 15px}
+.yoo-empty>strong{font-size:14px;color:#274d53}
+.yoo-empty>p{font-size:11px;line-height:1.65;max-width:320px;color:#91a7a6;margin:0}
+.yoo-created{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#e7f6f1;border:1px solid #a5d9c6;padding:18px;border-radius:15px;margin:17px 0}
+.yoo-created>div{display:flex;align-items:center;gap:12px;color:#1a8a75}
+.yoo-created strong{display:block;font-size:13px;color:#21504b}
+.yoo-created small{display:block;font-size:11px;margin-top:5px;color:#6c8d85}
+.yoo-guide{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.payment-guide-step{padding:22px 19px;border-radius:16px;border:1px solid #e4eae7;background:#fff;min-height:163px}
+.payment-guide-step>span{display:grid;place-items:center;background:#e7f5f2;color:#227b76;border-radius:12px;width:42px;height:42px}
+.payment-guide-step h3{font-size:13px;margin:16px 0 8px;color:#284b52}
+.payment-guide-step p{font-size:10px;line-height:1.7;margin:0;color:#879c9c}
+.yoo-footnote{display:flex;align-items:flex-start;gap:8px;color:#82999b;font-size:11px;line-height:1.65;margin-top:17px}
+.yoo-footnote svg{flex:none}
+/* High-clarity native controls */
+.modal input,.modal select,.modal textarea{border-radius:11px}
+.btn,.icon-button,.nav-link{transition:background-color .15s ease,color .15s ease,transform .15s ease}
+.btn:active,.mobile-bottom button:active,.nav-link:active{transform:scale(.975)}
+input,select,textarea{accent-color:var(--native-sea)}
+@media(max-width:1150px){.yoo-columns{grid-template-columns:1fr}.yoo-guide{grid-template-columns:repeat(2,minmax(0,1fr))}.yoo-hero-symbol{width:155px;height:155px}}
+@media(max-width:720px){
+ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Arial,sans-serif}
+ .main-content{padding:19px 15px calc(113px + env(safe-area-inset-bottom,0px));background:#f7f9f7}
+ .topbar{height:62px;padding:0 17px;background:#fcfdfb}
+ .topbar-section{font-size:0;max-width:none}
+ .topbar-section strong{font-size:15px;font-weight:850;color:#1c3744;letter-spacing:-.3px}
+ .topbar-section .topbar-dot{display:none}
+ .topbar .menu-trigger{background:#f0f7f4;border:1px solid #e1ebe8;border-radius:12px;height:41px;width:41px}
+ .topbar .notification{background:#f4f8f6;border-radius:11px;width:41px;height:41px}
+ .topbar .top-avatar{height:35px;width:35px}
+ .page-intro{margin-bottom:18px}
+ .page-intro .eyebrow{font-size:9px;letter-spacing:1.6px}
+ .page-intro h1{font-size:30px;font-weight:870;letter-spacing:-1.15px;line-height:1.12;margin:10px 0 7px}
+ .page-intro p{font-size:12px;color:#7e9598;line-height:1.55;max-width:340px}
+ .panel,.kpi{border-radius:17px}
+ .section-title h2,.panel-heading h2{font-size:15px}
+ .kpi-top{font-size:11px}
+ .kpi-value{font-size:clamp(20px,5.6vw,29px)}
+ .kpi-foot,.section-title p{font-size:10px}
+ .btn{font-size:13px;min-height:46px;border-radius:12px;padding:11px 15px}
+ .icon-button{min-height:42px;min-width:42px;border-radius:11px}
+ .inline-actions{gap:10px}
+ .inline-actions .btn{font-size:12px;min-height:45px;white-space:normal}
+ .toolbar-controls select,.tiny-search,.tiny-search input{font-size:13px}
+ .booking-mobile,.guest-mobile,.finance-mobile{min-height:71px;padding:17px 4px}
+ .booking-mobile-head strong,.guest-mobile strong,.finance-mobile strong{font-size:13px}
+ .booking-mobile-head small,.guest-mobile small,.finance-mobile small{font-size:11px}
+ .booking-mobile-meta span{font-size:11px}
+ .booking-mobile-meta strong{font-size:12px}
+ .guest-mobile,.finance-mobile,.booking-mobile{border-radius:12px}
+ .room-body{padding:19px}
+ .room-header h2{font-size:23px}
+ .room-bottom .btn{font-size:12px;min-height:43px}
+ .mobile-bottom{height:calc(71px + env(safe-area-inset-bottom,0px));padding:5px 8px env(safe-area-inset-bottom,0px);background:#ffffffed;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-top:1px solid #dceae7;box-shadow:0 -8px 28px #123f4c0a}
+ .mobile-bottom button{position:relative;gap:5px;border-radius:13px;font-size:10px;color:#81979a;font-weight:750}
+ .mobile-bottom button .ico{height:22px;width:22px}
+ .mobile-bottom button.active{color:#067e7f;background:#e8f6f3}
+ .mobile-bottom button.active:before{display:none}
+ .mobile-fab{height:56px;width:56px;border-radius:17px;right:17px;bottom:calc(86px + env(safe-area-inset-bottom,0px));box-shadow:0 9px 26px #07828154;background:linear-gradient(135deg,#13a9a1,#047d80)}
+ /* App-like bottom sheet for all secondary destinations */
+ .sidebar{top:auto;right:0;left:0;bottom:0;width:100vw;max-height:min(83dvh,760px);overflow-y:auto;overscroll-behavior:contain;transform:translateY(105%);border-radius:26px 26px 0 0;padding:14px 15px calc(22px + env(safe-area-inset-bottom,0px));background:linear-gradient(160deg,#102b39,#143e4b);box-shadow:0 -12px 58px #081f2961;transition:transform .24s ease}
+ .sidebar.is-open{transform:translateY(0)}
+ .sidebar:before{content:"";display:block;width:43px;height:5px;border-radius:8px;background:#ffffff5e;margin:0 auto 7px}
+ .sidebar .brand{padding:11px 12px 14px;text-align:left}
+ .sidebar .side-label{display:block!important;font-size:10px;margin:8px 10px 10px;color:#a9c6c8}
+ .sidebar .side-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:6px 0!important}
+ .sidebar .side-nav .nav-link{border:1px solid #ffffff20;background:#ffffff0c;padding:12px 11px;min-height:55px;border-radius:13px;justify-content:flex-start;gap:10px;font-size:12px}
+ .sidebar .side-nav .nav-link.active{background:#1a8c8b;border-color:#ffffff38}
+ .sidebar .side-nav .nav-link .ico{height:20px;width:20px;flex:none}
+ .sidebar .sidebar-bottom{display:none}
+ .modal-backdrop{padding:0;align-items:flex-end}
+ .modal,.gallery-modal{width:100%;max-height:min(94dvh,940px);border-radius:24px 24px 0 0;box-shadow:0 -19px 60px #082b3555;overflow:auto;overscroll-behavior:contain}
+ .modal-head{padding:22px 19px 16px}
+ .modal-head h2{font-size:21px;letter-spacing:-.4px}
+ .modal-body{padding:17px 19px calc(27px + env(safe-area-inset-bottom,0px));gap:15px}
+ .modal-body input,.modal-body select,.modal-body textarea{font-size:16px!important;min-height:47px;padding:11px 12px}
+ .modal-body label{font-size:12px!important;line-height:1.5}
+ .modal-body .form-grid label{font-size:12px!important}
+ .modal-actions{position:sticky;bottom:0;background:#fff;padding-top:12px;z-index:3}
+ .detail-drawer{width:100%;max-height:94dvh;top:auto;bottom:0;border-radius:24px 24px 0 0;box-shadow:0 -20px 70px #09252f42}
+ .drawer-head{padding:23px 19px 17px}
+ .drawer-content{padding:17px 19px calc(96px + env(safe-area-inset-bottom,0px))}
+ .detail-ledger>.btn{margin-top:11px}
+ /* Payment UI */
+ .yoo-hero{min-height:0;padding:25px 23px;border-radius:21px;box-shadow:0 12px 27px #143b4d1e}
+ .yoo-hero h2{font-size:29px;letter-spacing:-1.1px}
+ .yoo-hero .eyebrow{font-size:9px}
+ .yoo-hero p{font-size:12px}
+ .yoo-hero-symbol{display:none}
+ .yoo-hero-actions{gap:9px;margin-top:22px}
+ .yoo-hero .btn{min-height:45px;font-size:12px;flex:1;white-space:nowrap}
+ .yoo-connection{align-items:flex-start;padding:17px 15px;border-radius:15px}
+ .yoo-connection strong{font-size:12px}
+ .yoo-connection small{font-size:10px}
+ .yoo-connection .btn{padding:8px;min-height:39px;font-size:0;flex:none}
+ .yoo-connection .btn .ico{width:18px;height:18px}
+ .yoo-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .yoo-stat{padding:17px 15px;min-height:123px;border-radius:15px}
+ .yoo-stat:first-child{grid-column:span 2;min-height:106px}
+ .yoo-stat strong{font-size:26px;margin-top:11px}
+ .yoo-stat span{font-size:11px}
+ .yoo-stat small{font-size:10px;margin-top:10px}
+ .yoo-columns{display:block}
+ .yoo-panel{padding:19px 16px;margin-bottom:14px;min-height:0}
+ .yoo-panel-head h2{font-size:16px}
+ .yoo-panel-head p{font-size:11px}
+ .yoo-panel-head .btn{font-size:0;min-height:40px;padding:9px}
+ .yoo-panel-head .btn .ico{height:18px;width:18px}
+ .yoo-item{gap:11px;align-items:flex-start;flex-direction:column}
+ .yoo-item strong{font-size:13px}
+ .yoo-item small{font-size:11px}
+ .yoo-item .btn{width:100%;font-size:12px}
+ .yoo-payment-row{flex-direction:row;align-items:center}
+ .yoo-guide{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .payment-guide-step{min-height:165px;padding:16px 13px;border-radius:15px}
+ .payment-guide-step h3{font-size:12px}
+ .payment-guide-step p{font-size:10px}
+ .yoo-created{flex-wrap:wrap}
+ .yoo-created>.btn{width:100%}
+ .yoo-footnote{font-size:11px}
+}
+@media(max-width:370px){.yoo-stats{grid-template-columns:1fr}.yoo-stat:first-child{grid-column:auto}.yoo-hero-actions{flex-direction:column}.yoo-guide{grid-template-columns:1fr}.sidebar .side-nav{grid-template-columns:1fr}.yoo-connection{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sidebar{transition:none}}
+
+/* Prevent the settings form from forcing horizontal page scroll in tablet layouts. */
+@media (min-width:721px) and (max-width:1020px){
+  .settings-layout{grid-template-columns:minmax(0,1fr)}
+  .settings-form,.settings-form .form-section,.settings-form .form-grid,.settings-form .form-grid label{min-width:0}
+  .settings-form input,.settings-form select,.settings-form textarea{width:100%;min-width:0;max-width:100%}
+}
